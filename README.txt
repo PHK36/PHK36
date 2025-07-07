@@ -1,1 +1,0 @@
-This ZIP contains full PHK36 game clone structure.
