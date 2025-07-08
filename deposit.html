@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deposit - PHK36</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Deposit</h2>
+    <p>Send money to this UPI ID:</p>
+    <strong style="color: limegreen;">veermistry@fam</strong>
+
+    <p>After payment, your amount will be auto credited within 5 minutes.</p>
+    <input type="number" id="depositAmount" placeholder="Enter Amount" />
+    <button onclick="deposit()">I Have Paid</button>
+    <p><a href="dashboard.html">⬅ Back</a></p>
+  </div>
+
+  <script>
+    function deposit() {
+      const amt = parseInt(document.getElementById("depositAmount").value);
+      let wallet = parseInt(localStorage.getItem("wallet") || 0);
+      if (amt >= 10 && amt <= 10000) {
+        wallet += amt;
+        localStorage.setItem("wallet", wallet);
+        alert("₹" + amt + " will be added shortly.");
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Min ₹10 and Max ₹10000 allowed");
+      }
+    }
+  </script>
+</body>
+</html>

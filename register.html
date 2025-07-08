@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - PHK36</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Register</h2>
+    <input type="text" id="username" placeholder="Mobile Number" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="register()">Register</button>
+    <p><a href="login.html">Already have an account?</a></p>
+  </div>
+
+  <script>
+    function register() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      if(user && pass) {
+        localStorage.setItem('user', user);
+        localStorage.setItem('pass', pass);
+        localStorage.setItem('wallet', 20); // ₹20 bonus
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Please fill all fields");
+      }
+    }
+  </script>
+</body>
+</html>

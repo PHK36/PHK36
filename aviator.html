@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviator - PHK36</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Aviator</h2>
+    <p>Current Multiplier: <span id="multiplier">1.00x</span></p>
+    <input type="number" id="bet" placeholder="Enter Bet Amount" />
+    <button onclick="cashout()">Cash Out</button>
+    <p>Result: <span id="result"></span></p>
+    <p><a href="dashboard.html">⬅ Back</a></p>
+  </div>
+
+  <script>
+    let multiplier = 1.00;
+    const mult = document.getElementById("multiplier");
+    setInterval(() => {
+      multiplier += Math.random() * 0.1;
+      mult.textContent = multiplier.toFixed(2) + "x";
+    }, 500);
+
+    function cashout() {
+      const bet = parseInt(document.getElementById("bet").value);
+      let wallet = parseInt(localStorage.getItem('wallet') || 0);
+      const win = Math.floor(bet * multiplier);
+
+      if(bet > wallet) {
+        alert("Insufficient balance");
+        return;
+      }
+
+      wallet = wallet - bet + win;
+      localStorage.setItem("wallet", wallet);
+      document.getElementById("result").textContent = `You won ₹${win}`;
+    }
+  </script>
+</body>
+</html>

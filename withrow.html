@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Withdraw - PHK36</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Withdraw</h2>
+    <p>Enter UPI ID:</p>
+    <input type="text" id="upi" placeholder="Enter your UPI ID" />
+    <input type="number" id="withdrawAmount" placeholder="Enter Amount" />
+    <button onclick="withdraw()">Withdraw</button>
+    <p><a href="dashboard.html">⬅ Back</a></p>
+  </div>
+
+  <script>
+    function withdraw() {
+      const amt = parseInt(document.getElementById("withdrawAmount").value);
+      const upi = document.getElementById("upi").value;
+      let wallet = parseInt(localStorage.getItem("wallet") || 0);
+
+      if (amt < 20) {
+        alert("Minimum ₹20 required to withdraw.");
+        return;
+      }
+
+      if (amt > wallet) {
+        alert("Insufficient balance.");
+        return;
+      }
+
+      if (!upi.includes("@")) {
+        alert("Enter valid UPI ID.");
+        return;
+      }
+
+      wallet -= amt;
+      localStorage.setItem("wallet", wallet);
+      alert("₹" + amt + " will be sent to " + upi + " soon.");
+      window.location.href = "dashboard.html";
+    }
+  </script>
+</body>
+</html>
