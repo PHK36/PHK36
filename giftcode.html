@@ -1,0 +1,25 @@
+<h2>Gift Code Generator</h2>
+<input type="text" id="newcode" placeholder="Enter Gift Code">
+<button onclick="addCode()">Add Code</button>
+
+<ul id="codelist"></ul>
+
+<script>
+  function addCode() {
+    const code = document.getElementById("newcode").value.trim();
+    if (!code) return alert("Code empty hai!");
+
+    let codes = JSON.parse(localStorage.getItem("giftcodes") || "[]");
+    codes.push(code);
+    localStorage.setItem("giftcodes", JSON.stringify(codes));
+    alert("Code Added!");
+    showCodes();
+  }
+
+  function showCodes() {
+    let codes = JSON.parse(localStorage.getItem("giftcodes") || "[]");
+    document.getElementById("codelist").innerHTML = codes.map(c => `<li>${c}</li>`).join("");
+  }
+
+  showCodes();
+</script>
