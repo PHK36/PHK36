@@ -1,7 +1,0 @@
-<script>
-  const mobile = localStorage.getItem("loggedInUser");
-  const user = JSON.parse(localStorage.getItem("user_" + mobile));
-
-  document.getElementById("uidDisplay").innerText = user.uid;
-  document.getElementById("balanceDisplay").innerText = "₹" + user.balance;
-</script>
