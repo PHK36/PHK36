@@ -4,9 +4,9 @@
   <title>Register to PHK36</title>
 </head>
 <body>
-  <h2>Register to PHK36</h2>
-  <input id="email" type="email" placeholder="Enter Email"><br><br>
-  <input id="password" type="password" placeholder="Enter Password"><br><br>
+  <h1>Register to PHK36</h1>
+  <input type="email" id="email" placeholder="Enter your Email"><br>
+  <input type="password" id="password" placeholder="Enter Password"><br>
   <button onclick="register()">Register</button>
 
   <script type="module">
@@ -28,9 +28,15 @@
     function register() {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
+
       createUserWithEmailAndPassword(auth, email, password)
-        .then(userCredential => alert("Registered Successfully!"))
-        .catch(error => alert("Error: " + error.message));
+        .then((userCredential) => {
+          alert("Registration Successful!");
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert("Error: " + error.message);
+        });
     }
 
     window.register = register;
