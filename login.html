@@ -30,7 +30,7 @@
       const password = document.getElementById("password").value;
       signInWithEmailAndPassword(auth, email, password)
         .then(userCredential => alert("Login Successful!"))
-        .catch(error => alert("Error: " + error.message));
+        window.location.href = "dashboard.html";
     }
 
     window.login = login;
