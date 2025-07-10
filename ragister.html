@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PHK36 | Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Create New Account</h2>
+    <input type="text" id="registerPhone" placeholder="Mobile Number">
+    <input type="password" id="registerPassword" placeholder="Password">
+    <button onclick="register()">Register</button>
+    <p>Already have an account? <a href="index.html">Login</a></p>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <script src="firebaseConfig.js"></script>
+  <script>
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    function register() {
+      const phone = document.getElementById("registerPhone").value;
+      const password = document.getElementById("registerPassword").value;
+
+      auth.createUserWithEmailAndPassword(phone + "@phk36.com", password)
+        .then((userCredential) => {
+          db.collection("users").doc(userCredential.user.uid).set({
+            phone: phone,
+            wallet: 20,
+            createdAt: new Date()
+          });
+          window.location.href = "dashboard.html";
+        })
+        .catch(error => alert("Registration Failed: " + error.message));
+    }
+  </script>
+</body>
+</html>
