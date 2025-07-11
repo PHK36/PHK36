@@ -1,4 +1,7 @@
-// Replace with your Firebase config
+// firebase-config.js
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyA8Y4Qem3HHW-MFOhV-ev1A3787-nRygpk",
   authDomain: "phk36-6cbf9.firebaseapp.com",
@@ -7,4 +10,6 @@ const firebaseConfig = {
   messagingSenderId: "538514333070",
   appId: "1:538514333070:web:1c3c4fbcfb8f5cd6bf98df"
 };
-firebase.initializeApp(firebaseConfig);
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
