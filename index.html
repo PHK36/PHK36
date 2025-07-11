@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PHK36 Login / Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2 id="form-title">Login</h2>
+    <form id="auth-form">
+      <input type="text" id="mobile" placeholder="Mobile Number" required />
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Password" required />
+        <span id="toggle-password">👁️</span>
+      </div>
+      <button type="submit" id="submit-btn">Login</button>
+      <p class="toggle-text">
+        Don't have an account? <span id="toggle-form">Register</span>
+      </p>
+      <p class="forgot" id="forgot-password">Forgot Password?</p>
+    </form>
+  </div>
+  <script src="firebase-config.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
