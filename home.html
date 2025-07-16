@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PHK36 - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="home.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome to PHK36</h1>
+      <p id="userUid">UID: Loading...</p>
+      <p id="userBalance">Balance: ₹0</p>
+    </header>
+
+    <section class="actions">
+      <button onclick="window.location.href='deposit.html'">Deposit</button>
+      <button onclick="window.location.href='withdraw.html'">Withdraw</button>
+      <button onclick="window.location.href='referral.html'">Referral</button>
+    </section>
+
+    <section class="games">
+      <h2>Play Games</h2>
+      <div class="game-grid">
+        <div class="game-card" onclick="window.location.href='aviator.html'">🎮 Aviator</div>
+        <div class="game-card" onclick="window.location.href='mines.html'">💣 Mines</div>
+        <div class="game-card" onclick="window.location.href='wingo.html'">🎯 Wingo</div>
+        <div class="game-card" onclick="window.location.href='color.html'">🎨 Color Prediction</div>
+        <!-- Add more games here -->
+      </div>
+    </section>
+
+    <footer>
+      <button onclick="logout()">Logout</button>
+    </footer>
+  </div>
+</body>
+</html>

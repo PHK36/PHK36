@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login - PHK36</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login</h2>
+    <input type="text" id="mobile" placeholder="Enter Mobile Number" />
+    <input type="password" id="password" placeholder="Enter Password" />
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="register.html">Register</a></p>
+  </div>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module">
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+    import { app } from './firebase-config.js';
+
+    const auth = getAuth(app);
+
+    window.login = () => {
+      const mobile = document.getElementById("mobile").value;
+      const password = document.getElementById("password").value;
+      const email = `${mobile}@phk36.com`;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(userCredential => {
+          alert("Login Successful");
+          window.location.href = "home.html";
+        })
+        .catch(error => {
+          alert("Login Failed: " + error.message);
+        });
+    };
+  </script>
+</body>
+</html>

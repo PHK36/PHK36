@@ -1,0 +1,29 @@
+body {
+  font-family: Arial;
+  background: #101010;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.game-container {
+  max-width: 400px;
+  margin: auto;
+}
+#plane {
+  width: 100px;
+  animation: fly 2s infinite;
+}
+@keyframes fly {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(300px); }
+}
+.colors button {
+  margin: 10px;
+  padding: 10px 20px;
+}
+.grid button {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  font-size: 20px;
+}

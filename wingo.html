@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PHK36 Wingo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <h2>Color Prediction - Wingo</h2>
+    <div class="colors">
+      <button onclick="predict('Red')">Red</button>
+      <button onclick="predict('Green')">Green</button>
+      <button onclick="predict('Purple')">Purple</button>
+    </div>
+    <input type="number" id="wingo-bet" placeholder="Enter Bet ₹">
+    <button onclick="submitWingo()">Place Bet</button>
+    <div id="wingo-result"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
